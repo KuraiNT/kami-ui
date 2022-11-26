@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { Link } from 'react-router-dom';
 
 import styles from './Menu.module.scss';
@@ -14,5 +16,12 @@ function MenuItem({ to, title, icon, className }) {
         </Link>
     );
 }
+
+MenuItem.prototype = {
+    to: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    icon: PropTypes.node.isRequired,
+    className: PropTypes.string.isRequired,
+};
 
 export default MenuItem;

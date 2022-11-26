@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import styles from './FavouriteItem.module.scss';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
@@ -12,5 +14,12 @@ function FavouriteItem({ img, title, to, className }) {
         </Link>
     );
 }
+
+FavouriteItem.prototype = {
+    img: PropTypes.node.isRequired,
+    title: PropTypes.string,
+    to: PropTypes.string,
+    className: PropTypes.string,
+};
 
 export default FavouriteItem;
