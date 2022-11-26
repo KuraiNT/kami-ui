@@ -5,4 +5,6 @@
 .container {
     padding: 40px;
     flex: 1;
+    height: 1000px;
+    margin-left: calc(var(--width-sidebar) + 24px);
 }

@@ -1,0 +1,20 @@
+.favourite-item {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    background-color: var(--favourite-item-background);
+    border-radius: 9px;
+    transition-duration: 0.15s;
+
+    &:hover {
+        transform: translate(0, -0.4rem) rotate(0) skewX(0) skewY(0) scaleX(1)
+            scaleY(1);
+        --tw-translate-y: -0.4rem;
+    }
+}
+
+.title {
+    margin-left: 16px;
+    font-size: 1.8rem;
+    color: var(--white);
+}
