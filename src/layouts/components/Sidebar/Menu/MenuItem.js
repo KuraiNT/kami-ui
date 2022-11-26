@@ -7,9 +7,10 @@ const cx = classNames.bind(styles);
 
 function MenuItem({ to, title, icon }) {
     return (
-        <Link to={to} className={cx('nav')}>
+        <Link to={to} className={cx('menu-item')}>
             <span className={cx('icon')}>{icon}</span>
             <span className={cx('title')}>{title}</span>
+            <span className={cx('ping')}></span>
         </Link>
     );
 }
