@@ -11,6 +11,7 @@
     --text-color: #374151;
 
     --width-sidebar: 256px;
+    --height-header: 48px;
 }
 
 * {
@@ -32,4 +33,10 @@ body {
 
 a {
     text-decoration: none;
+}
+
+input,
+button {
+    border: none;
+    outline: none;
 }
