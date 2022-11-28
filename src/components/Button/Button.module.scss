@@ -1,4 +1,25 @@
 .wrapper {
-    width: 125px;
-    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    cursor: pointer;
+    color: var(--white);
+    font-size: 1.8rem;
+    font-weight: 600;
+    transition-duration: 0.3s;
+    background-image: linear-gradient(to top left, #6366f1, #14b8a6);
+}
+
+.primary {
+    padding: 11.6px 38px;
+    border-radius: 999px;
+    box-shadow: var(0 0 #0000, 0 0 #0000), var(0 0 #0000, 0 0 #0000),
+        var(0 10px 15px -3px #99f6e4, 0 4px 6px -4px #99f6e4);
+
+    &:hover {
+        background-position: 100% 100%;
+        background-image: linear-gradient(to top left, #14b8a6, #6366f1);
+        transform: translate(0, 0) rotate(0) skewX(0) skewY(0) scaleX(1.05)
+            scaleY(1.05);
+    }
 }

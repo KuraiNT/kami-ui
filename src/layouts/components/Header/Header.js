@@ -1,4 +1,5 @@
 import Search from '~/layouts/components/Search';
+import { Button } from '~/components/Button';
 
 import styles from './Header.module.scss';
 import classNames from 'classnames/bind';
@@ -12,7 +13,7 @@ function Header() {
                 <h3 className={cx('heading')}>Welcome!</h3>
                 <Search />
             </div>
-            <button>Login</button>
+            <Button primary>Login</Button>
         </div>
     );
 }
