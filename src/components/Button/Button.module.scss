@@ -1,25 +1,102 @@
 .wrapper {
     display: flex;
     align-items: center;
-    justify-self: center;
+    justify-content: center;
     cursor: pointer;
     color: var(--white);
     font-size: 1.8rem;
     font-weight: 600;
+    padding: 11.6px 38px;
     transition-duration: 0.3s;
-    background-image: linear-gradient(to top left, #6366f1, #14b8a6);
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000,
+        0 10px 15px -3px #ccfbf1, 0 4px 6px -4px #ccfbf1;
+}
+
+.icon + .title,
+.title + .icon {
+    margin-left: 8px;
 }
 
 .primary {
-    padding: 11.6px 38px;
+    max-width: 125px;
     border-radius: 999px;
-    box-shadow: var(0 0 #0000, 0 0 #0000), var(0 0 #0000, 0 0 #0000),
-        var(0 10px 15px -3px #99f6e4, 0 4px 6px -4px #99f6e4);
+    background-size: 200% 200%;
+    background-image: linear-gradient(to top left, #14b8a6, #6366f1, #2dd4bf);
 
     &:hover {
         background-position: 100% 100%;
-        background-image: linear-gradient(to top left, #14b8a6, #6366f1);
         transform: translate(0, 0) rotate(0) skewX(0) skewY(0) scaleX(1.05)
             scaleY(1.05);
     }
+}
+
+.text {
+    font-weight: 700;
+    font-size: 2rem;
+    background-color: var(--green);
+    padding: 10.4px 12px;
+    margin-right: 40px;
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+    border-top-right-radius: 24px;
+    cursor: text;
+
+    &:hover {
+        background-position: 0 0;
+    }
+}
+
+.large {
+    color: var(--black);
+    font-weight: 300;
+    font-size: 1.2rem;
+    padding: 13.2px 77px;
+    border-radius: 12px;
+    width: 253px;
+    background-color: var(--background-small-button);
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000,
+        0 4px 6px -1px #e0efff, 0 2px 4px -2px #e0efff;
+    transition-duration: 0.15s;
+
+    &:hover {
+        background-color: rgb(199 210 254/1);
+    }
+}
+
+.small {
+    padding: 5.6px 19px;
+    border-radius: 12px;
+    background-color: var(--favourite-item-background);
+
+    &:hover {
+        background-color: rgb(13 148 136/1);
+        transform: translate(0, 0) rotate(0) skewX(0) skewY(0) scaleX(1.05)
+            scaleY(1.05);
+    }
+}
+
+.medium {
+    border-radius: 999px;
+    font-size: 1.6rem;
+    max-width: 112px;
+    padding: 6.8px 35.6px;
+    background-color: var(--blue);
+
+    &:hover {
+        background-color: rgb(79 70 229/1);
+    }
+}
+
+.outline {
+    font-size: 2.4rem;
+    color: #949ef7;
+    padding: 7.4px 10.5px;
+    border-radius: 12px;
+    border: 2px solid rgb(199 210 254/1);
+}
+
+.rounded {
+    border-radius: 999px;
+    padding: 7.6px 13px;
 }

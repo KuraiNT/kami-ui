@@ -19,6 +19,8 @@
 
 // Menu Item
 .active {
+    font-size: 1.8rem;
+
     &:hover {
         background-color: rgb(129 140 248/1);
         transform: translate(0, -0.4rem) rotate(0) skewX(0) skewY(0) scaleX(1)
@@ -29,6 +31,8 @@
 }
 
 .default {
+    font-size: 1.8rem;
+
     &:hover {
         background-color: rgb(224 231 255/1);
         transform: translate(0, -0.4rem) rotate(0) skewX(0) skewY(0) scaleX(1)

@@ -28,7 +28,7 @@ function Search() {
             offset={[0, 4]}
             render={(attrs) => (
                 <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                    <PopperWrapper>
+                    <PopperWrapper className={cx('wrapper-scroll')}>
                         <SearchItem />
                     </PopperWrapper>
                 </div>

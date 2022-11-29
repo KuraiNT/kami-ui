@@ -1,10 +1,9 @@
 import styles from './Sidebar.module.scss';
 import classNames from 'classnames/bind';
-import Menu from './Menu';
-import MenuItem from './Menu/MenuItem';
 import { HomeIcon, PopularIcon, GenreIcon } from '~/components/Icons';
 import { Image } from '~/components/Image';
 import FavouriteItem from '~/components/FavouriteItem';
+import { Menu, MenuItem } from './Menu';
 
 const cx = classNames.bind(styles);
 
