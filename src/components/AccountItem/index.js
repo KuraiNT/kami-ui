@@ -1,1 +1,2 @@
-export { default } from './AccountItem';
+export { default as AccountMenu } from './AccountMenu';
+export { default as AccountItem } from './AccountItem';

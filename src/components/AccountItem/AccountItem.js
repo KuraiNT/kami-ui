@@ -2,16 +2,23 @@ import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
 
-import styles from './AccountItem.module.scss';
+import styles from './Account.module.scss';
 import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-function AccountItem({ to, title, icon, className }) {
+function AccountItem({ data, className }) {
     return (
-        <Link to={to} className={cx('account-item', className)}>
-            <span className={cx('icon')}>{icon}</span>
-            <span className={cx('title')}>{title}</span>
+        <Link
+            to={data.to}
+            className={cx(
+                'account-item',
+                className,
+                data.separate && 'separate',
+            )}
+        >
+            <span className={cx('icon')}>{data.icon}</span>
+            <span className={cx('title')}>{data.title}</span>
         </Link>
     );
 }
