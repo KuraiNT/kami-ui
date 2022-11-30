@@ -16,6 +16,7 @@ const cx = classNames.bind(styles);
 function Search() {
     const [searchResult, setSearchResult] = useState([]);
     const [searchValue, setSearchValue] = useState('');
+    const [showResult, setShowResult] = useState(false);
 
     const inputUseRef = useRef();
 
@@ -30,22 +31,22 @@ function Search() {
         fetchApi();
     }, [debounce]);
 
-    const hideSearchResult = () => {
-        setSearchResult([]);
-        setSearchValue('');
-    };
-
     const handleCloseSearchValue = () => {
         setSearchValue('');
+        setSearchResult([]);
+        inputUseRef.current.focus();
+    };
+
+    const handleHideResult = () => {
+        setShowResult(false);
     };
 
     return (
         <Tippy
             interactive
-            visible={searchValue || searchResult.length > 0}
+            visible={showResult || searchResult.length > 0}
             placement="bottom"
             offset={[0, 4]}
-            onHide={hideSearchResult}
             render={(attrs) => (
                 <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                     <PopperWrapper className={cx('wrapper-scroll')}>
@@ -55,11 +56,13 @@ function Search() {
                     </PopperWrapper>
                 </div>
             )}
+            onClickOutside={handleHideResult}
         >
             <div className={cx('search')}>
                 <input
                     ref={inputUseRef}
                     value={searchValue}
+                    spellCheck={false}
                     onChange={(e) => setSearchValue(e.target.value)}
                     className={cx('input-search')}
                     placeholder="Search..."
@@ -71,7 +74,10 @@ function Search() {
                         onClick={handleCloseSearchValue}
                     />
                 )}
-                <button className={cx('btn-search')}>
+                <button
+                    className={cx('btn-search')}
+                    onMouseDown={(e) => e.preventDefault()}
+                >
                     <FontAwesomeIcon icon={faSearch} />
                 </button>
             </div>

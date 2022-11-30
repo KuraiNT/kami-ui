@@ -5,6 +5,8 @@ import { Image } from '~/components/Image';
 import FavouriteItem from '~/components/FavouriteItem';
 import { Menu, MenuItem } from './Menu';
 import { useEffect, useState } from 'react';
+import * as topService from '~/services/topService';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -12,18 +14,23 @@ function Sidebar() {
     const [topResult, setTopResult] = useState([]);
 
     useEffect(() => {
-        fetch('https://gogoanime.consumet.org/top-airing')
-            .then((res) => res.json())
-            .then((res) => setTopResult(res));
-    }, [topResult]);
+        const fetchApi = async () => {
+            const result = await topService.top();
+            setTopResult(result);
+        };
+
+        fetchApi();
+    }, []);
 
     return (
         <div className={cx('wrapper')}>
-            <Image
-                alt=""
-                className={cx('logo')}
-                src="https://kamiwatch.vercel.app/_next/image?url=%2Fimages%2Flogo.png&w=1920&q=75"
-            />
+            <Link to="/">
+                <Image
+                    className={cx('logo')}
+                    alt=""
+                    src="https://kamiwatch.vercel.app/_next/image?url=%2Fimages%2Flogo.png&w=1920&q=75"
+                />
+            </Link>
             <aside className={cx('aside')}>
                 <Menu>
                     <MenuItem
@@ -50,11 +57,7 @@ function Sidebar() {
                 <h1 className={cx('title')}>FAVOURITES</h1>
                 <aside className={cx('menu-favourite')}>
                     {topResult.map((result, index) => (
-                        <FavouriteItem
-                            key={index}
-                            data={result}
-                            className={cx('favouriteItem-active')}
-                        />
+                        <FavouriteItem key={index} data={result} />
                     ))}
                 </aside>
             </div>
