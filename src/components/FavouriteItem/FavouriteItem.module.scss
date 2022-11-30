@@ -14,7 +14,21 @@
 }
 
 .title {
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    height: 1.5rem;
     margin-left: 16px;
-    font-size: 1.8rem;
     color: var(--white);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    text-overflow: ellipsis;
+}
+
+.img {
+    height: 48px;
+    width: 34px;
+    border-top-left-radius: 9px;
+    border-bottom-left-radius: 9px;
 }

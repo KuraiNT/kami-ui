@@ -4,10 +4,19 @@ import { HomeIcon, PopularIcon, GenreIcon } from '~/components/Icons';
 import { Image } from '~/components/Image';
 import FavouriteItem from '~/components/FavouriteItem';
 import { Menu, MenuItem } from './Menu';
+import { useEffect, useState } from 'react';
 
 const cx = classNames.bind(styles);
 
 function Sidebar() {
+    const [topResult, setTopResult] = useState([]);
+
+    useEffect(() => {
+        fetch('https://gogoanime.consumet.org/top-airing')
+            .then((res) => res.json())
+            .then((res) => setTopResult(res));
+    }, [topResult]);
+
     return (
         <div className={cx('wrapper')}>
             <Image
@@ -39,43 +48,14 @@ function Sidebar() {
             </aside>
             <div className={cx('favourite')}>
                 <h1 className={cx('title')}>FAVOURITES</h1>
-                <aside>
-                    <Menu>
+                <aside className={cx('menu-favourite')}>
+                    {topResult.map((result, index) => (
                         <FavouriteItem
+                            key={index}
+                            data={result}
                             className={cx('favouriteItem-active')}
-                            to="/detail"
-                            title="Naruto"
-                            img={
-                                <Image
-                                    className={cx('img-favourite')}
-                                    alt=""
-                                    src="https://media.kitsu.io/anime/poster_images/10089/medium.jpg?1597697270"
-                                />
-                            }
                         />
-                        <FavouriteItem
-                            to="/detail"
-                            title="Dragon Ball Z"
-                            img={
-                                <Image
-                                    className={cx('img-favourite')}
-                                    alt=""
-                                    src="https://media.kitsu.io/anime/poster_images/10879/medium.jpg?1627149099"
-                                />
-                            }
-                        />
-                        <FavouriteItem
-                            to="/detail"
-                            title="One Piece"
-                            img={
-                                <Image
-                                    className={cx('img-favourite')}
-                                    alt=""
-                                    src="https://gogocdn.net/images/anime/One-piece.jpg"
-                                />
-                            }
-                        />
-                    </Menu>
+                    ))}
                 </aside>
             </div>
             <div className={cx('footer')}>

@@ -46,18 +46,13 @@
     margin-top: 48px;
 }
 
-.title {
-    font-size: 1.4rem;
-    line-height: 2rem;
-    font-weight: 500;
-    color: #9ca3af;
+.menu-favourite {
+    max-height: 204px;
+    overflow: hidden scroll;
 }
 
-.img-favourite {
-    height: 48px;
-    width: 34px;
-    border-top-left-radius: 9px;
-    border-bottom-left-radius: 9px;
+.menu-favourite::-webkit-scrollbar {
+    width: 0;
 }
 
 .favouriteItem-active {
