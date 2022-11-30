@@ -3,8 +3,9 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import { useEffect, useState, useRef } from 'react';
 import { SearchItem } from '~/components/SearchItem';
+import { useDebounce } from '~/hooks';
 
-import * as searchService from '~/apiServices/searchService';
+import * as searchService from '~/services/searchService';
 import Tippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
 import styles from './Search.module.scss';
@@ -18,14 +19,16 @@ function Search() {
 
     const inputUseRef = useRef();
 
+    const debounce = useDebounce(searchValue, 500);
+
     useEffect(() => {
         const fetchApi = async () => {
-            const result = await searchService.search(searchValue);
+            const result = await searchService.search(debounce);
             setSearchResult(result);
         };
 
         fetchApi();
-    }, [searchValue]);
+    }, [debounce]);
 
     const hideSearchResult = () => {
         setSearchResult([]);
