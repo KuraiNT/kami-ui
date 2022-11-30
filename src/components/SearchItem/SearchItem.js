@@ -4,15 +4,15 @@ import { Image } from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
-function SearchItem() {
+function SearchItem({ data }) {
     return (
         <div className={cx('search-item')}>
             <Image
-                src="https://gogocdn.net/images/anime/N/naruto.jpg"
-                alt=""
+                src={data.animeImg}
+                alt={data.animeImg}
                 className={cx('img')}
             />
-            <span className={cx('title')}>Naruto</span>
+            <span className={cx('title')}>{data.animeTitle}</span>
         </div>
     );
 }
