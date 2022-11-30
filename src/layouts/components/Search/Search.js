@@ -6,7 +6,7 @@ import { SearchItem } from '~/components/SearchItem';
 import { useDebounce } from '~/hooks';
 
 import * as searchService from '~/services/searchService';
-import Tippy from '@tippyjs/react/headless';
+import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
 import styles from './Search.module.scss';
 import classNames from 'classnames/bind';
@@ -16,13 +16,18 @@ const cx = classNames.bind(styles);
 function Search() {
     const [searchResult, setSearchResult] = useState([]);
     const [searchValue, setSearchValue] = useState('');
-    const [showResult, setShowResult] = useState(false);
+    const [showResult, setShowResult] = useState(true);
 
     const inputUseRef = useRef();
 
     const debounce = useDebounce(searchValue, 500);
 
     useEffect(() => {
+        if (!debounce.trim()) {
+            setSearchResult([]);
+            return;
+        }
+
         const fetchApi = async () => {
             const result = await searchService.search(debounce);
             setSearchResult(result);
@@ -31,7 +36,7 @@ function Search() {
         fetchApi();
     }, [debounce]);
 
-    const handleCloseSearchValue = () => {
+    const handleClear = () => {
         setSearchValue('');
         setSearchResult([]);
         inputUseRef.current.focus();
@@ -41,17 +46,24 @@ function Search() {
         setShowResult(false);
     };
 
+    const handleChange = (e) => {
+        const searchValue = e.target.value;
+        if (!searchValue.startsWith(' ')) {
+            setSearchValue(searchValue);
+        }
+    };
+
     return (
-        <Tippy
+        <HeadlessTippy
             interactive
-            visible={showResult || searchResult.length > 0}
+            visible={showResult && searchResult.length > 0}
             placement="bottom"
             offset={[0, 4]}
             render={(attrs) => (
                 <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                     <PopperWrapper className={cx('wrapper-scroll')}>
-                        {searchResult.map((result, index) => (
-                            <SearchItem key={index} data={result} />
+                        {searchResult.map((result) => (
+                            <SearchItem key={result.animeId} data={result} />
                         ))}
                     </PopperWrapper>
                 </div>
@@ -63,7 +75,8 @@ function Search() {
                     ref={inputUseRef}
                     value={searchValue}
                     spellCheck={false}
-                    onChange={(e) => setSearchValue(e.target.value)}
+                    onFocus={() => setShowResult(true)}
+                    onChange={handleChange}
                     className={cx('input-search')}
                     placeholder="Search..."
                 />
@@ -71,7 +84,7 @@ function Search() {
                     <FontAwesomeIcon
                         icon={faClose}
                         className={cx('btn-close')}
-                        onClick={handleCloseSearchValue}
+                        onClick={handleClear}
                     />
                 )}
                 <button
@@ -81,7 +94,7 @@ function Search() {
                     <FontAwesomeIcon icon={faSearch} />
                 </button>
             </div>
-        </Tippy>
+        </HeadlessTippy>
     );
 }
 

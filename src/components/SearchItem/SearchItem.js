@@ -1,3 +1,5 @@
+import Proptypes from 'prop-types';
+
 import styles from './SearchItem.module.scss';
 import classNames from 'classnames/bind';
 import { Image } from '~/components/Image';
@@ -17,5 +19,9 @@ function SearchItem({ data }) {
         </Link>
     );
 }
+
+SearchItem.proptype = {
+    data: Proptypes.object.isRequired,
+};
 
 export default SearchItem;
