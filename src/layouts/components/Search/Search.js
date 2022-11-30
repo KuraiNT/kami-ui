@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faClose, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import { useEffect, useState, useRef } from 'react';
 import { SearchItem } from '~/components/SearchItem';
@@ -35,6 +35,10 @@ function Search() {
         setSearchValue('');
     };
 
+    const handleCloseSearchValue = () => {
+        setSearchValue('');
+    };
+
     return (
         <Tippy
             interactive
@@ -60,6 +64,13 @@ function Search() {
                     className={cx('input-search')}
                     placeholder="Search..."
                 />
+                {searchValue && (
+                    <FontAwesomeIcon
+                        icon={faClose}
+                        className={cx('btn-close')}
+                        onClick={handleCloseSearchValue}
+                    />
+                )}
                 <button className={cx('btn-search')}>
                     <FontAwesomeIcon icon={faSearch} />
                 </button>

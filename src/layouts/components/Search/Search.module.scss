@@ -14,6 +14,18 @@
     color: #1f2937;
 }
 
+.btn-close {
+    position: absolute;
+    background-color: #999999;
+    padding: 2px 4px;
+    border-radius: 999px;
+    top: 50%;
+    right: 54px;
+    color: var(--white);
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
 .btn-search {
     position: absolute;
     color: #9ca3af;
