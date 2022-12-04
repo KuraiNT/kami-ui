@@ -7,9 +7,13 @@ import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-function SearchItem({ data }) {
+function SearchItem({ data, onClick }) {
     return (
-        <Link className={cx('search-item')} to={`/@${data.animeTitle}`}>
+        <Link
+            onClick={onClick}
+            className={cx('search-item')}
+            to={`/@${data.animeTitle}`}
+        >
             <Image
                 src={data.animeImg}
                 alt={data.animeImg}

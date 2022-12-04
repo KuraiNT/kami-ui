@@ -63,7 +63,11 @@ function Search() {
                 <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                     <PopperWrapper className={cx('wrapper-scroll')}>
                         {searchResult.map((result) => (
-                            <SearchItem key={result.animeId} data={result} />
+                            <SearchItem
+                                key={result.animeId}
+                                data={result}
+                                onClick={handleHideResult}
+                            />
                         ))}
                     </PopperWrapper>
                 </div>
