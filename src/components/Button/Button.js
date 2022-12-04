@@ -12,6 +12,7 @@ function Button({
     href,
     onClick,
     children,
+    playBtn = false,
     primary = false,
     text = false,
     small = false,
@@ -37,6 +38,7 @@ function Button({
     const classes = cx('wrapper', {
         [className]: className,
         primary,
+        playBtn,
         text,
         small,
         large,
@@ -60,6 +62,7 @@ Button.prototype = {
     onClick: PropTypes.func.isRequired,
     children: PropTypes.node.isRequired,
     primary: PropTypes.bool,
+    playBtn: PropTypes.bool,
     text: PropTypes.bool,
     small: PropTypes.bool,
     large: PropTypes.bool,

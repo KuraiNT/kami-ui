@@ -3,10 +3,8 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    color: var(--white);
     font-size: 1.8rem;
     font-weight: 600;
-    padding: 11.6px 38px;
     transition-duration: 0.3s;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000,
@@ -19,6 +17,8 @@
 }
 
 .primary {
+    padding: 11.6px 38px;
+    color: var(--white);
     max-width: 125px;
     border-radius: 999px;
     background-size: 200% 200%;
@@ -31,7 +31,16 @@
     }
 }
 
+.playBtn {
+    color: var(--white);
+    max-width: 125px;
+    border-radius: 999px;
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000,
+        0 10px 15px -3px #14b8a6, 0 4px 6px -4px #14b8a6;
+}
+
 .text {
+    color: var(--white);
     font-weight: 700;
     font-size: 2rem;
     background-color: var(--green);
@@ -97,6 +106,5 @@
 }
 
 .rounded {
-    border-radius: 999px;
-    padding: 7.6px 13px;
+    border-radius: 50%;
 }

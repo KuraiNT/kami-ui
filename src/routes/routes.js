@@ -1,9 +1,9 @@
 import { routes } from '~/config';
 
-import Detail from '~/pages/Detail/Detail';
-import Genre from '~/pages/Genre/Genre';
-import Home from '~/pages/Home/Home';
-import Popular from '~/pages/Popular/Popular';
+import Detail from '~/pages/Detail';
+import Genre from '~/pages/Genre';
+import Home from '~/pages/Home';
+import Popular from '~/pages/Popular';
 
 const publicRoutes = [
     { path: routes.home, component: Home },

@@ -24,7 +24,7 @@ function Sidebar() {
 
     return (
         <div className={cx('wrapper')}>
-            <Link to="/">
+            <Link to="/" className={cx('btn-logo')}>
                 <Image
                     className={cx('logo')}
                     alt=""

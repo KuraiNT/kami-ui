@@ -5,6 +5,8 @@
     background-color: var(--favourite-item-background);
     border-radius: 9px;
     transition-duration: 0.15s;
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000,
+        0 10px 15px -3px #ccfbf1, 0 4px 6px -4px #ccfbf1;
 
     &:hover {
         transform: translate(0, -0.4rem) rotate(0) skewX(0) skewY(0) scaleX(1)
