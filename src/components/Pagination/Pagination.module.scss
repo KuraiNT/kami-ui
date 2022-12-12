@@ -1,0 +1,33 @@
+.control {
+    display: flex;
+    margin-top: 32px;
+}
+
+.btn-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    color: var(--white);
+    list-style-type: none;
+    background-color: var(--blue);
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000,
+        0 10px 15px -3px #c7d2fe, 0 4px 6px -4px #c7d2fe;
+
+    &:hover {
+        transform: translate(0, 0) rotate(0) skewX(0) skewY(0) scaleX(1.05)
+            scaleY(1.05);
+    }
+
+    &:nth-child(2) {
+        margin-left: 8px;
+    }
+}
+
+.btn-icon {
+    margin-top: 1px;
+    font-size: 1.8rem;
+}

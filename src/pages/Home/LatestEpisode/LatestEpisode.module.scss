@@ -1,0 +1,32 @@
+.wrapper {
+    position: relative;
+    margin-top: 88px;
+    padding: 0 24px;
+}
+
+.image {
+    position: absolute;
+    height: 64px;
+    top: -44px;
+    left: 0;
+}
+
+.container {
+    background-color: var(--white);
+    border-radius: var(--boder-radius-24);
+    padding: 32px;
+}
+
+.heading {
+    color: #374151;
+    font-size: 3rem;
+    line-height: 3rem;
+    font-weight: 600;
+}
+
+.content {
+    display: grid;
+    margin-top: 32px;
+    gap: 24px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
